@@ -1,165 +1,216 @@
+/* Variáveis de Cores (Tema Escuro Por Padrão) */
 :root {
     --bg-color: #0f172a;
-    --panel-bg: #1e293b;
+    --sidebar-bg: #1e293b;
     --card-bg: #334155;
     --text-color: #f8fafc;
     --accent-color: #38bdf8;
     --border-color: #475569;
 }
 
-/* Restauração do Cursor Padrão */
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    cursor: auto; /* Garante que o mouse funciona normalmente */
+/* Tema Claro Dinâmico */
+body.light-theme {
+    --bg-color: #f1f5f9;
+    --sidebar-bg: #ffffff;
+    --card-bg: #e2e8f0;
+    --text-color: #0f172a;
+    --accent-color: #0284c7;
+    --border-color: #cbd5e1;
 }
 
-/* Filtros de Acessibilidade */
-body.protanopia { filter: grayscale(0.5) sepia(0.3); }
-body.deuteranopia { filter: hue-rotate(90deg); }
+/* Acessibilidade */
+body.high-contrast { filter: contrast(180%); }
+body.grayscale { filter: grayscale(100%); }
 
-/* Barra Lateral Esquerda para os Botões */
-.sidebar-tools {
-    width: 260px;
-    background-color: var(--panel-bg);
-    border-right: 1px solid var(--border-color);
+/* Reset e Layout Geral */
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    cursor: auto !important; /* Força o mouse visível e funcional */
+}
+
+/* Barra de Progresso Superior */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 280px;
+    right: 0;
+    height: 4px;
+    background: var(--accent-color);
+    width: 0%;
+    z-index: 1000;
+}
+
+/* PAINEL LATERAL ESQUERDO */
+.sidebar {
+    width: 280px;
     height: 100vh;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
     position: fixed;
     top: 0;
     left: 0;
     padding: 20px;
-    box-sizing: border-box;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    overflow-y: auto;
 }
 
-.sidebar-tools h3 {
-    margin-top: 0;
+.sidebar h2 {
+    font-size: 1.2rem;
+    margin: 0 0 10px 0;
     color: var(--accent-color);
-    font-size: 1.1rem;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
 }
 
-.tool-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.tool-btn, .tool-select {
+.tool-card {
     background: var(--card-bg);
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
     padding: 10px;
     border-radius: 6px;
-    cursor: pointer;
-    text-align: left;
-    font-size: 0.85rem;
-    transition: all 0.2s;
-}
-
-.tool-btn:hover, .tool-select:hover {
-    border-color: var(--accent-color);
-    background: #475569;
-}
-
-/* Widgets da Sidebar */
-.sidebar-widgets {
-    margin-top: auto;
-    background: rgba(0,0,0,0.2);
-    padding: 10px;
-    border-radius: 6px;
-    font-size: 0.8rem;
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.konami-hint {
-    font-size: 0.7rem;
-    color: #94a3b8;
-    margin-top: 10px;
+.tool-card label {
+    font-size: 0.85rem;
+    font-weight: bold;
 }
 
-/* Área Principal */
-.main-wrapper {
-    margin-left: 260px;
-    padding: 30px;
-    width: calc(100% - 260px);
-    box-sizing: border-box;
-}
-
-/* Progresso no Topo */
-.scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 260px;
-    height: 4px;
+/* Botões e Inputs */
+.btn, .btn-sm, .select-input {
     background: var(--accent-color);
-    width: 0%;
-    z-index: 100;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: opacity 0.2s;
 }
 
-.card {
-    background: var(--panel-bg);
+.btn:hover, .btn-sm:hover { opacity: 0.85; }
+
+.btn-group { display: flex; gap: 5px; }
+
+.select-input {
+    background: var(--sidebar-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.qr-box img {
+    margin-top: 8px;
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+/* Widgets da Sidebar */
+.system-widgets {
+    background: rgba(0,0,0,0.15);
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+.system-widgets p { margin: 4px 0; }
+.status-online { color: #22c55e; font-weight: bold; }
+.status-offline { color: #ef4444; font-weight: bold; }
+.hint { font-size: 0.7rem; opacity: 0.7; }
+
+/* ÁREA PRINCIPAL */
+.main-content {
+    margin-left: 280px;
+    padding: 30px;
+    width: calc(100% - 280px);
+}
+
+.header-card, .content-section {
+    background: var(--sidebar-bg);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 20px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
-.projects-grid {
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin-top: 10px;
+}
+
+/* Cards de Projetos */
+.cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 15px;
 }
 
-.project-card {
+.card-item {
     background: var(--card-bg);
     padding: 15px;
     border-radius: 6px;
     border: 1px solid var(--border-color);
 }
 
-.search-box input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
-    background: var(--panel-bg);
-    color: var(--text-color);
-    box-sizing: border-box;
-    margin-top: 10px;
+.tag {
+    background: var(--accent-color);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
 }
 
 /* Terminal */
-.terminal-window {
+.terminal {
     background: #000;
-    border: 1px solid var(--border-color);
+    color: #00ff66;
     border-radius: 6px;
     font-family: monospace;
+    overflow: hidden;
 }
-.terminal-header {
-    background: #0f172a;
-    padding: 8px;
+.terminal-bar {
+    background: #111;
+    padding: 6px 10px;
     display: flex;
     gap: 6px;
+    align-items: center;
+    color: #888;
+    font-size: 0.8rem;
 }
-.dot { width: 10px; height: 10px; border-radius: 50%; }
-.red { background: #ef4444; } .yellow { background: #f59e0b; } .green { background: #10b981; }
-.terminal-body { padding: 12px; height: 120px; overflow-y: auto; font-size: 0.9rem; }
-.terminal-input-line { display: flex; padding: 8px 12px; background: #050505; }
-.terminal-input-line input { background: transparent; border: none; color: #10b981; outline: none; flex: 1; }
+.btn-dot { width: 10px; height: 10px; border-radius: 50%; }
+.red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+.terminal-body { padding: 12px; height: 100px; overflow-y: auto; font-size: 0.85rem; }
+.terminal-input-area { display: flex; padding: 6px 12px; background: #080808; }
+.terminal-input-area input { background: transparent; border: none; color: #00ff66; outline: none; flex: 1; font-family: monospace; }
 
-/* Status da Rede */
-.online { color: #10b981; }
-.offline { color: #ef4444; }
+/* Calculadora & To-Do */
+.calc-row { margin-bottom: 10px; }
+.calc-row input { padding: 6px; border-radius: 4px; border: 1px solid var(--border-color); }
+.result-text { margin-top: 10px; font-size: 1.1rem; }
 
-.qr-container { margin-top: 15px; }
+.todo-input-group { display: flex; gap: 8px; }
+.todo-input-group input { flex: 1; padding: 8px; border-radius: 4px; border: 1px solid var(--border-color); }
+.todo-list { list-style: none; padding: 0; margin-top: 10px; }
+.todo-list li {
+    background: var(--card-bg);
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn-del { background: #ef4444; color: #fff; border: none; padding: 2px 6px; border-radius: 4px; cursor: pointer; }
