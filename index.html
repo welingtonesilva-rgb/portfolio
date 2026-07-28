@@ -1,116 +1,150 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Escolar | Projetos &amp; Estudos</title>
+    <title>Portfólio Escolar &amp; Pessoal</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
 
-    <aside class="sidebar-tools">
-        <h3>🛠️ Ferramentas</h3>
-        <div class="tool-group">
-            <button id="lang-toggle" class="tool-btn">🌐 Idioma: <span id="lang-indicator">PT</span></button>
-            <button id="audio-toggle" class="tool-btn">🎵 Som de Foco (Off)</button>
-            <button id="pitch-mode" class="tool-btn">🚀 Apresentação Guiada</button>
-            <button id="generate-qr-btn" class="tool-btn">📱 Gerar QR Estudantil</button>
-            <button id="voice-search-btn" class="tool-btn">🎙️ Busca por Voz</button>
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <aside class="sidebar">
+        <h2>🛠️ Painel de Controle</h2>
+
+        <div class="tool-card">
+            <label>🎨 Tema do Site:</label>
+            <button id="btn-theme" class="btn">Modo Claro / Escuro</button>
         </div>
 
-        <div class="tool-group">
-            <label for="accessibility-mode">👁️ Acessibilidade:</label>
-            <select id="accessibility-mode" class="tool-select">
-                <option value="normal">Padrão</option>
-                <option value="protanopia">Protanopia</option>
-                <option value="deuteranopia">Deuteranopia</option>
+        <div class="tool-card">
+            <label>⏱️ Cronômetro de Estudo:</label>
+            <div id="timer-display">00:00</div>
+            <div class="btn-group">
+                <button id="btn-timer-start" class="btn-sm">Iniciar</button>
+                <button id="btn-timer-stop" class="btn-sm">Pausar</button>
+            </div>
+        </div>
+
+        <div class="tool-card">
+            <label>🎵 Som de Concentração:</label>
+            <button id="btn-audio" class="btn">Ligar Som de Foco</button>
+        </div>
+
+        <div class="tool-card">
+            <label>🚀 Apresentação Guiada:</label>
+            <button id="btn-pitch" class="btn">Iniciar Tour pelo Site</button>
+        </div>
+
+        <div class="tool-card">
+            <label for="select-access">👁️ Modo de Visão:</label>
+            <select id="select-access" class="select-input">
+                <option value="normal">Normal</option>
+                <option value="high-contrast">Alto Contraste</option>
+                <option value="grayscale">Preto e Branco</option>
             </select>
         </div>
 
-        <div class="sidebar-widgets">
-            <div class="widget-item">🕒 Hora Local: <strong id="local-time">00:00</strong></div>
-            <div class="widget-item">🌐 Rede: <span id="network-status" class="online">Online</span></div>
-            <div class="widget-item">⏱️ Tempo de Estudo: <strong id="session-time">0s</strong></div>
-            <div class="widget-item">⚡ Desempenho (FPS): <strong id="fps-count">60</strong></div>
+        <div class="tool-card">
+            <label>📱 Cartão de Visita Digital:</label>
+            <button id="btn-qr" class="btn">Gerar QR Code</button>
+            <div id="qr-result" class="qr-box"></div>
         </div>
 
-        <div class="konami-hint">💡 Dica: Tente a sequência de teclas ↑ ↑ ↓ ↓ ← → ← → B A</div>
+        <div class="system-widgets">
+            <p>🕒 Hora Local: <strong id="clock">00:00:00</strong></p>
+            <p>🌐 Status: <span id="net-status" class="status-online">Online</span></p>
+            <p>⚡ Desempenho: <strong id="fps-display">60 FPS</strong></p>
+            <p>⏳ Tempo no Site: <strong id="session-counter">0s</strong></p>
+        </div>
+
+        <small class="hint">💡 Dica: Digite a sequência Konami (↑ ↑ ↓ ↓ ← → ← → B A)</small>
     </aside>
 
-    <div class="scroll-progress"></div>
+    <div class="main-content">
 
-    <div class="main-wrapper">
-        <header>
-            <div class="profile-header">
-                <h1>📚 Portfólio Acadêmico</h1>
-                <p id="hero-subtitle">Estudante do Ensino Médio | Projetos, Feiras de Ciências e Automação</p>
-            </div>
+        <header class="header-card">
+            <h1>📚 Meu Portfólio Escolar &amp; Pessoal</h1>
+            <p>Estudante | Projetos Acadêmicos, Atividades e Objetivos</p>
             
-            <div class="search-box">
-                <input type="text" id="project-search" placeholder="Pesquisar projetos ou matérias...">
+            <div class="search-bar">
+                <input type="text" id="input-search" placeholder="🔍 Pesquisar por matéria ou projeto...">
             </div>
         </header>
 
-        <main>
-            <section class="card">
-                <h2>📂 Trabalhos em Destaque</h2>
-                <div class="projects-grid">
-                    <article class="project-card">
-                        <h3>🌱 Maquete Ecosistema Sustentável</h3>
-                        <p><strong>Disciplina:</strong> Biologia / Geografia</p>
-                        <p>Projeto para a Feira de Ciências demonstrando reuso de água e energia solar.</p>
-                    </article>
-                    <article class="project-card">
-                        <h3>🤖 Carrinho Seguidor de Linha</h3>
-                        <p><strong>Disciplina:</strong> Robótica / Física</p>
-                        <p>Protótipo com Arduino utilizando sensores ópticos para navegação autônoma.</p>
-                    </article>
+        <section class="content-section">
+            <h2>📂 Meus Trabalhos &amp; Projetos</h2>
+            <div class="cards-grid" id="projects-list">
+                <div class="card-item" data-tags="biologia ciencias feira sustentabilidade">
+                    <span class="tag">Biologia / Ciências</span>
+                    <h3>🌱 Maquete de Ecossistema Sustentável</h3>
+                    <p>Trabalho apresentado na Feira de Ciências sobre reaproveitamento de água e energia solar doméstica.</p>
                 </div>
-            </section>
 
-            <section class="card">
-                <h2>🖥️ Terminal de Comandos Estudantil</h2>
-                <div class="terminal-window">
-                    <div class="terminal-header">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                        <span class="title">bash - aluno@escola:~</span>
-                    </div>
-                    <div class="terminal-body" id="terminal-output">
-                        <p>Digite <strong>'help'</strong> para ver comandos como <i>materias</i>, <i>notas</i> ou <i>contato</i>.</p>
-                    </div>
-                    <div class="terminal-input-line">
-                        <span>$&nbsp;</span>
-                        <input type="text" id="terminal-input">
-                    </div>
+                <div class="card-item" data-tags="fisica robotica tecnologia arduino">
+                    <span class="tag">Física &amp; Robótica</span>
+                    <h3>🤖 Carrinho Autônomo com Arduino</h3>
+                    <p>Construção de um protótipo seguidor de linha feito com sensores ultrassônicos e reutilização de peças.</p>
                 </div>
-            </section>
 
-            <section class="card">
-                <h2>📊 Calculadora de Média / Estimador de Notas</h2>
-                <div class="calc-card">
-                    <label>Selecione a Matéria:
-                        <select id="calc-type">
-                            <option value="7">Matemática (Meta: 7.0)</option>
-                            <option value="6">Física (Meta: 6.0)</option>
-                            <option value="8">História (Meta: 8.0)</option>
-                        </select>
-                    </label>
-                    <label>Horas de Estudo Semanais:
-                        <input type="range" id="calc-time" min="1" max="15" value="5">
-                        <span id="time-val">5 Horas</span>
-                    </label>
-                    <h3>Estimativa de Rendimento: <span id="calc-total">7.5</span> / 10</h3>
+                <div class="card-item" data-tags="historia redação portugues">
+                    <span class="tag">História / Português</span>
+                    <h3>📜 Ensaio: A Revolução Industrial e a Tecnologia</h3>
+                    <p>Pesquisa documental e ensaio crítico sobre os impactos da automação na sociedade moderna.</p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="card">
-                <h2>🪪 Cartão Estudantil Digital</h2>
-                <div id="qrcode" class="qr-container"></div>
-            </section>
-        </main>
+        <section class="content-section">
+            <h2>🖥️ Terminal do Estudante</h2>
+            <div class="terminal">
+                <div class="terminal-bar">
+                    <span class="btn-dot red"></span>
+                    <span class="btn-dot yellow"></span>
+                    <span class="btn-dot green"></span>
+                    <span>terminal@estudante:~</span>
+                </div>
+                <div class="terminal-body" id="term-output">
+                    <p>Digite <strong>help</strong> para ver a lista de comandos disponíveis.</p>
+                </div>
+                <div class="terminal-input-area">
+                    <span>$&nbsp;</span>
+                    <input type="text" id="term-input" placeholder="digite um comando...">
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📊 Calculadora de Média / Desempenho</h2>
+            <div class="calc-box">
+                <div class="calc-row">
+                    <label>Nota do 1º Bimestre:</label>
+                    <input type="number" id="n1" min="0" max="10" value="7.5" step="0.5">
+                </div>
+                <div class="calc-row">
+                    <label>Nota do 2º Bimestre:</label>
+                    <input type="number" id="n2" min="0" max="10" value="8.0" step="0.5">
+                </div>
+                <button id="btn-calc" class="btn">Calcular Média Parcial</button>
+                <div id="calc-result" class="result-text">Sua média parcial é: <strong>7.8</strong></div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>✅ Lista de Metas de Estudo</h2>
+            <div class="todo-box">
+                <div class="todo-input-group">
+                    <input type="text" id="todo-input" placeholder="Adicionar nova tarefa escolar...">
+                    <button id="btn-todo-add" class="btn">Adicionar</button>
+                </div>
+                <ul id="todo-list" class="todo-list">
+                    <li>Estudar para a prova de Matemática <button class="btn-del">X</button></li>
+                    <li>Entregar relatório de Física <button class="btn-del">X</button></li>
+                </ul>
+            </div>
+        </section>
+
     </div>
 
     <script src="script.js"></script>
