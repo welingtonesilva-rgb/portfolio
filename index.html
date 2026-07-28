@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Portfolio | Próxima Geração</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div id="network-status" class="online">Conectado</div>
+
+    <div class="scroll-progress"></div>
+
+    <header>
+        <nav>
+            <div class="logo">&lt;DevPortfolio /&gt;</div>
+            <div class="nav-controls">
+                <span id="local-time">00:00:00</span>
+
+                <button id="lang-toggle" class="btn-sm">EN</button>
+
+                <select id="accessibility-mode" class="select-sm">
+                    <option value="normal">Visão Normal</option>
+                    <option value="protanopia">Protanopia</option>
+                    <option value="deuteranopia">Deuteranopia</option>
+                </select>
+
+                <button id="audio-toggle" class="btn-sm">🎵 Foco</button>
+
+                <button id="pitch-mode" class="btn-sm highlight">Modo Pitch</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 data-i18n="heroTitle">Desenvolvedor Full Stack &amp; Designer de Experiências</h1>
+            <p data-i18n="heroSub">Criando produtos digitais de alto impacto com tecnologias modernas.</p>
+            
+            <div class="search-box">
+                <input type="text" id="project-search" placeholder="Buscar projetos...">
+                <button id="voice-search-btn">🎙️</button>
+            </div>
+        </section>
+
+        <section class="terminal-section">
+            <h2>Terminal Interativo</h2>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="title">bash - dev@portfolio:~</span>
+                </div>
+                <div class="terminal-body" id="terminal-output">
+                    <p>Digite <strong>'help'</strong> para ver a lista de comandos disponíveis.</p>
+                </div>
+                <div class="terminal-input-line">
+                    <span>$&nbsp;</span>
+                    <input type="text" id="terminal-input" autofocus>
+                </div>
+            </div>
+        </section>
+
+        <section class="calculator-section">
+            <h2>Estimador de Projetos</h2>
+            <div class="calc-card">
+                <label>Tipo de Projeto:
+                    <select id="calc-type">
+                        <option value="1000">Landing Page (R$ 1.000)</option>
+                        <option value="3000">E-commerce (R$ 3.000)</option>
+                        <option value="5000">Web App / SaaS (R$ 5.000)</option>
+                    </select>
+                </label>
+                <label>Prazo Estimado:
+                    <input type="range" id="calc-time" min="1" max="12" value="4">
+                    <span id="time-val">4 Semanas</span>
+                </label>
+                <h3>Total Estimado: R$ <span id="calc-total">1000</span></h3>
+            </div>
+        </section>
+
+        <section class="qr-section">
+            <h2>Cartão de Visita Digital</h2>
+            <button id="generate-qr-btn">Gerar QR Code de Contato</button>
+            <div id="qrcode" class="qr-container"></div>
+        </section>
+    </main>
+
+    <div id="performance-widget">
+        <span>FPS: <strong id="fps-count">60</strong></span> | 
+        <span>Sessão: <strong id="session-time">0s</strong></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
