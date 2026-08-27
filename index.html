@@ -1,152 +1,59 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Escolar &amp; Pessoal</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Portfólio</title>
 </head>
 <body>
+    <h1>Welington Silva</h1>
+    <p>Estudante de tecnologia com interesse em TI, especificamente em Programação.</p>
+    <br>
+    <figure>
+  <img src="" alt="Imagem Representativa">
+  <figcaption></figcaption>
 
-    <div class="scroll-progress" id="scroll-progress"></div>
+  <hr>
 
-    <aside class="sidebar">
-        <h2>🛠️ Painel de Controle</h2>
+  <h2>Sobre mim:</h2>
+  <p>Olá! Meu nome é Welington, tenho 16 anos de idade e moro em São José dos Pinhais.
+    Nas minhas horas vagas eu gosto de desenvolver sites webs, assistir filmes e jogar jogos.
+  </p>
 
-        <div class="tool-card">
-            <label>🎨 Tema do Site:</label>
-            <button id="btn-theme" class="btn">Modo Claro / Escuro</button>
-        </div>
+  <hr>
 
-        <div class="tool-card">
-            <label>⏱️ Cronômetro de Estudo:</label>
-            <div id="timer-display">00:00</div>
-            <div class="btn-group">
-                <button id="btn-timer-start" class="btn-sm">Iniciar</button>
-                <button id="btn-timer-stop" class="btn-sm">Pausar</button>
-            </div>
-        </div>
+  <h2>Meus Projetos:</h2>
+  <h3>CineCritica News</h3>
+  <p>Um projeto que cita avaliações de filmes ou séries. Esse site web foi o primeiro projeto que fiz durante o ano letivo.
+    <p><strong>Utilizado: </strong>HTML, CSS e Java Script.</p>
 
-        <div class="tool-card">
-            <label>🎵 Som de Concentração:</label>
-            <button id="btn-audio" class="btn">Ligar Som de Foco</button>
-        </div>
+    <h3>VerificaFato</h3>
+    <p>Um site que avalia e ensina a como descobrir se um site é confiável ou não; que também usa flashcards de estudo.</p>
+    <p><strong>Utilizado: </strong> HTML e CSS.</p>
 
-        <div class="tool-card">
-            <label>🚀 Apresentação Guiada:</label>
-            <button id="btn-pitch" class="btn">Iniciar Tour pelo Site</button>
-        </div>
+    <h3>MelhorIdade</h3>
+    <p>Web site focado em dicas simples e práticas para navegar com tranquilidade.</p>
+    <p><strong>Utilizado: </strong>Apenas HTML.</p>
 
-        <div class="tool-card">
-            <label for="select-access">👁️ Modo de Visão:</label>
-            <select id="select-access" class="select-input">
-                <option value="normal">Normal</option>
-                <option value="high-contrast">Alto Contraste</option>
-                <option value="grayscale">Preto e Branco</option>
-            </select>
-        </div>
+    <br>
+    <p>Além desses, criei outros em meu perfil privado.</p>
 
-        <div class="tool-card">
-            <label>📱 Cartão de Visita Digital:</label>
-            <button id="btn-qr" class="btn">Gerar QR Code</button>
-            <div id="qr-result" class="qr-box"></div>
-        </div>
+    <hr>
 
-        <div class="system-widgets">
-            <p>🕒 Hora Local: <strong id="clock">00:00:00</strong></p>
-            <p>🌐 Status: <span id="net-status" class="status-online">Online</span></p>
-            <p>⚡ Desempenho: <strong id="fps-display">60 FPS</strong></p>
-            <p>⏳ Tempo no Site: <strong id="session-counter">0s</strong></p>
-        </div>
+    <h2>Meus objetivos:</h2>
+    <p>Meu objetivo de carreira é ser desenvolvedor de sites; pois é uma área que eu gosto.
+        No futuro, pretendo desenvolver jogos e sites para outras empresas.
+    </p>
 
-        <small class="hint">💡 Dica: Digite a sequência Konami (↑ ↑ ↓ ↓ ← → ← → B A)</small>
-    </aside>
+    <hr>
 
-    <div class="main-content">
+    <h2>Contato:</h2>
+    <h2>Contato</h2>
+    <p>E-mail: <a href="mailto:welington.e.silva@escola.pr.gov.br">welington.e.silva@escola.pr.gov.br</a></p>
+    <p>Rede Social: <a href="" target="_blank">Não se aplica.</a></p>
+    <p>Site que mais gosto: <a href="https://github.com/" target="_blank">GitHub</a></p>
+</figure>
 
-        <header class="header-card">
-            <h1>📚 Meu Portfólio Escolar &amp; Pessoal</h1>
-            <p>Estudante | Projetos Acadêmicos, Atividades e Objetivos</p>
-            
-            <div class="search-bar">
-                <input type="text" id="input-search" placeholder="🔍 Pesquisar por matéria ou projeto...">
-            </div>
-        </header>
-
-        <section class="content-section">
-            <h2>📂 Meus Trabalhos &amp; Projetos</h2>
-            <div class="cards-grid" id="projects-list">
-                <div class="card-item" data-tags="biologia ciencias feira sustentabilidade">
-                    <span class="tag">Biologia / Ciências</span>
-                    <h3>🌱 Maquete de Ecossistema Sustentável</h3>
-                    <p>Trabalho apresentado na Feira de Ciências sobre reaproveitamento de água e energia solar doméstica.</p>
-                </div>
-
-                <div class="card-item" data-tags="fisica robotica tecnologia arduino">
-                    <span class="tag">Física &amp; Robótica</span>
-                    <h3>🤖 Carrinho Autônomo com Arduino</h3>
-                    <p>Construção de um protótipo seguidor de linha feito com sensores ultrassônicos e reutilização de peças.</p>
-                </div>
-
-                <div class="card-item" data-tags="historia redação portugues">
-                    <span class="tag">História / Português</span>
-                    <h3>📜 Ensaio: A Revolução Industrial e a Tecnologia</h3>
-                    <p>Pesquisa documental e ensaio crítico sobre os impactos da automação na sociedade moderna.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <h2>🖥️ Terminal do Estudante</h2>
-            <div class="terminal">
-                <div class="terminal-bar">
-                    <span class="btn-dot red"></span>
-                    <span class="btn-dot yellow"></span>
-                    <span class="btn-dot green"></span>
-                    <span>terminal@estudante:~</span>
-                </div>
-                <div class="terminal-body" id="term-output">
-                    <p>Digite <strong>help</strong> para ver a lista de comandos disponíveis.</p>
-                </div>
-                <div class="terminal-input-area">
-                    <span>$&nbsp;</span>
-                    <input type="text" id="term-input" placeholder="digite um comando...">
-                </div>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <h2>📊 Calculadora de Média / Desempenho</h2>
-            <div class="calc-box">
-                <div class="calc-row">
-                    <label>Nota do 1º Bimestre:</label>
-                    <input type="number" id="n1" min="0" max="10" value="7.5" step="0.5">
-                </div>
-                <div class="calc-row">
-                    <label>Nota do 2º Bimestre:</label>
-                    <input type="number" id="n2" min="0" max="10" value="8.0" step="0.5">
-                </div>
-                <button id="btn-calc" class="btn">Calcular Média Parcial</button>
-                <div id="calc-result" class="result-text">Sua média parcial é: <strong>7.8</strong></div>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <h2>✅ Lista de Metas de Estudo</h2>
-            <div class="todo-box">
-                <div class="todo-input-group">
-                    <input type="text" id="todo-input" placeholder="Adicionar nova tarefa escolar...">
-                    <button id="btn-todo-add" class="btn">Adicionar</button>
-                </div>
-                <ul id="todo-list" class="todo-list">
-                    <li>Estudar para a prova de Matemática <button class="btn-del">X</button></li>
-                    <li>Entregar relatório de Física <button class="btn-del">X</button></li>
-                </ul>
-            </div>
-        </section>
-
-    </div>
-
-    <script src="script.js"></script>
+    
 </body>
 </html>
