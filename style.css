@@ -1,12 +1,14 @@
 body {
-background-color: lightblue;
+background-color: darkblue;
 }
 
 h1 {
-color: darkblue;
+color: lightblue;
 font-size: 40px;
 }
 
 p {
 font-size: 20px;
 }
+
+
