@@ -1,17 +1,10 @@
 body {
-background-color: white;
-}
+    background-color: white;
+  }
 
-h1 {
-color: lightblue;
-font-size: 40px;
-}
-
-p {
-font-size: 20px;
-}
-
-h3 {
-  color: lightblue
-  font-size: 20px;
-}
+body {
+    background-color: blue;
+  }
+  h1 {
+    background–color: purple;
+  }
